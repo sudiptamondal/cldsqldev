@@ -1,6 +1,8 @@
 class DashboardController < ApplicationController
+  protect_from_forgery with: :null_session
   def index
   end
+  
   def logon
     if request.post?
       client = Savon.client(
