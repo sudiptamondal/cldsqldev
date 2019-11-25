@@ -5,8 +5,6 @@ ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -41,8 +39,13 @@ group :development do
   gem 'spring'
   gem 'httplog'
   gem 'better_errors'
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3', '~> 1.4'
   gem 'binding_of_caller'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+group :production do 
+  gem 'pg'
 end
 
 group :test do
