@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: properties
+#
+#  id         :integer          not null, primary key
+#  key        :string
+#  value      :string
+#  desc       :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  key: MyString
+  value: MyString
+  desc: MyText
+
+two:
+  key: MyString
+  value: MyString
+  desc: MyText
