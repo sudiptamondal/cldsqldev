@@ -64,7 +64,27 @@ class DashboardController < ApplicationController
     end
   end
   def executequery
-    
+    if request.post?
+        client = Savon.client(
+        wsdl:        params["wsdlurl"],
+        logger:      Rails.logger,
+        log_level:   :warn,
+        log:         true,
+        basic_auth: [params["username"], params["password"]]
+      )
+      response = client.call(:execute_sql_query,
+        message: {
+          sessionID: params["sessionsecret"],
+          sql: params["sql"],
+          outputFormat: "xml",
+          
+        })
+      doc = Nokogiri::XML(response.to_s)
+
+      respond_to do |format|
+        format.text { render xml: "success" }
+      end
+    end
     
   end
 end

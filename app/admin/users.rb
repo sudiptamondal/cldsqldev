@@ -15,6 +15,18 @@ ActiveAdmin.register User do
   #   permitted
   # end
 
-  permit_params :name  
+  permit_params :name, :email, :customer_id, :password, :reset_password_token, :reset_password_sent_at, :remember_created_at
+
+    form do |f|
+    f.inputs do
+      f.input :customer_id,as: :select, collection: Customer.select(:id,:name)
+      f.input :name
+      f.input :password
+      f.input :email
+    end
+    f.actions
+
+  end
+
 
 end

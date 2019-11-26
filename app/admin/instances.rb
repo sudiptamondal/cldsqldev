@@ -20,7 +20,8 @@ ActiveAdmin.register Instance do
     f.inputs do
       f.input :customer_id,as: :select, collection: Customer.select(:id,:name)
       f.input :name
-      f.input :instance_url
+      f.input :instance_url, label: "Instance URL"
+      f.input :wsdl_url, label: "WSDL URL"
       f.input :username
       f.input :password
     end
@@ -31,7 +32,7 @@ ActiveAdmin.register Instance do
 
 
   permit_params do
-    permitted = [:name, :instance_url, :username, :password, :customer_id]
+    permitted = [:name, :instance_url, :username, :password, :customer_id, :wsdl_url]
     permitted
   end  
   

@@ -48,6 +48,23 @@ var keepalive = function() {
 		}
 	});	
 }
+var executequery = function() {
+	$.ajax({
+		type: "POST",
+		url: "/dashboard/executequery",
+		data: {
+			sessionsecret: $("#sessionsecret").val(),
+			username: $("#username").val(),
+			password: $("#password").val(),
+			wsdlurl:  $("#wsdlurl").val(),
+			sql: $("#sql").val()
+		},
+		async: false,
+		success: function(data) {
+			console.log(data);//$("#sessionsecret").val("");
+		}
+	});	
+}
 $(function() {
 	$("#logon").on("click", function() {
 		if ($("#sessionsecret").val() == "") {
