@@ -17,4 +17,5 @@ ActiveAdmin.register Property do
 
   permit_params :key, :value, :desc
   
+  permit_params :key, :value, :desc
 end
