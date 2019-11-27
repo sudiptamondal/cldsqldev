@@ -1,37 +1,19 @@
 %h1 Dashboard#index
 %p Find me in app/views/dashboard/index.html.erb
 
-%div{style:"width:100%;float:left;"}
-  %div{style:"width:50%;float:left;"}
+%div.pull-left{style:"width:100%;"}
+  %div.pull-left{style:"width:50%;"}
     %h3 Input Options
-    %ul{style:"width:100%;list-style:none;float:left;"}
-      %li{style:"float:left;width:30%"}
-        Username: 
-      %li{style:"float:left;width:60%;"}
-        %input#username{style:"float:left;width:100%;", value:""}
-    %ul{style:"width:100%;list-style:none;float:left;"}
-      %li{style:"float:left;width:30%"}
-        Password
-      %li{style:"float:left;width:60%;"}
-        %input#password{style:"float:left;width:100%;", value:""}
-    %ul{style:"width:100%;list-style:none;float:left;"}
-      %li{style:"float:left;width:30%"}
-        WSDLUrl
-      %li{style:"float:left;width:60%;"}
-        %input#wsdlurl{style:"float:left;width:100%;", value:""}
-    %ul{style:"width:100%;list-style:none;float:left;"}
-      %li{style:"float:left;width:30%"}
-        ActionUrl
-      %li{style:"float:left;width:60%;"}
-        %input#actionurl{style:"float:left;width:100%;"}
-    %ul{style:"width:100%;list-style:none;float:left;"}
-      %li{style:"float:left;width:30%"}
-        SessionSecret
-      %li{style:"float:left;width:60%;"}
-        %input#sessionsecret{style:"float:left;width:100%;"}
+    %ul.pull-left{style:"width:100%;list-style:none;"}
+      %li.pull-left{style:"width:30%"}
+        Instance: 
+      %li.pull-left{style:"width:60%;"}
+        %select#username{style:"width:100%;", value:""}
+          - @instances.each do |instance|
+            %option{value:"#{instance.id}"} #{instance.name}
     %input#logon{type:"button", value:"Logon",style:"margin-left:10%;"}
     %input#logoff{type:"button", value:"Logoff",style:"margin-left:10%;"}
-  %div{style:"width:45%;float:left;padding-right:10px;height:100%;"}
+  %div.pull-left{style:"width:45%;padding-right:10px;height:100%;"}
     %h3 Enter the SQL Query in the textarea
-    %textarea#sql{placeholder: "Enter SQL Query", style:"float:left;width:100%;height:200px;"}
+    %textarea#sql.pull-left{placeholder: "Enter SQL Query", style:"width:100%;height:200px;"}
     %input#submitquery{type:"button", value:"Submit Query",style:"margin-left:10%;;margin-top:10px;"}
