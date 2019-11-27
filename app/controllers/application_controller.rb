@@ -4,14 +4,15 @@ class ApplicationController < ActionController::Base
   private
   
     def app_up
-      begin
-        site_up  = Property.where(key: "SITE_UP").first.value == "UP" ? true : false
-      rescue Exception => e
-        site_up = false  
-      end
-        if site_up == false
-          redirect_to "/down.html"
+      if request.url.match(/admin/).blank? 
+        begin
+          site_up  = Property.where(key: "SITE_UP").first.value == "UP" ? true : false
+        rescue Exception => e
+          site_up = false  
         end
+          if site_up == false
+            redirect_to "/down.html"
+          end
+      end
     end
-
 end
