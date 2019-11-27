@@ -9,9 +9,7 @@ class ApplicationController < ActionController::Base
       rescue Exception => e
         site_up = false  
       end
-        if site_up == true
-          redirect_to :root
-        else
+        if site_up == false
           redirect_to "/down.html"
         end
     end
