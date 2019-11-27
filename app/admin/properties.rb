@@ -14,5 +14,5 @@ ActiveAdmin.register Property do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  permitted = [:key, :value, :desc]
+  permit_params = [:key, :value, :desc]
 end
